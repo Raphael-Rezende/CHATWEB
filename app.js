@@ -1,5 +1,4 @@
 const app = require('./config/server');
-const chatPublic = require('./app/routes/chatPublic');
 const port = 3000;
 const address = '192.168.1.106';
 
