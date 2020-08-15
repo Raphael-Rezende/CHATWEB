@@ -25,14 +25,14 @@
     </body>
     
     <script type="text/javascript">
-        var socket = io('http://192.168.1.106:3000/chatPublic/'); 
+        var socket = io('http://192.168.1.106:3000'); 
         
         function renderMessage(message){
             $('.messages').append('<div class="message"><strong>' + message.author  + '</strong> ' + message.message +' </div>')
         }
         socket.on('previousMessage', function(messages){
             for(message of messages){
-                renderMessage(message);
+                renderMessage(  message);
             }
         });
 

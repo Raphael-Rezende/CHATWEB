@@ -6,8 +6,6 @@ var path = require('path')
 
 var app = express();
 
-console.log(path.join(__dirname, '../app/public'))
-
 app.use(express.static(path.join(__dirname, '../app/public')))
 
 app.set('view engine', 'ejs');
@@ -17,8 +15,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 consign()
     .include('app/routes')
-    .then('config/dbConnection.js')
-    .then('app/models')
     .into(app);
 
 module.exports = app;
