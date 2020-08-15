@@ -4,12 +4,11 @@ var bodyParser = require('body-parser');
 var path = require('path')
 
 
-const io = require('socket.io')(app);
-
 var app = express();
-console.log(path.join(__dirname, './app/views'))
 
-app.use(express.static(path.join(__dirname, './app/views')));
+console.log(path.join(__dirname, '../app/public'))
+
+app.use(express.static(path.join(__dirname, '../app/public')))
 
 app.set('view engine', 'ejs');
 app.set('views','./app/views');
