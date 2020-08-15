@@ -1,9 +1,10 @@
-var express = require('express');
-var consign = require('consign');
-var bodyParser = require('body-parser');
-var path = require('path');
+const express = require('express');
+const consign = require('consign');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-var app = express();
+
+const app = express();
 
 app.use(express.static(path.join(__dirname, '../app/public')))
 

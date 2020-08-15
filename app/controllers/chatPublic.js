@@ -1,0 +1,1 @@
+const chatPublicModel = require('../models/chatPublic');
