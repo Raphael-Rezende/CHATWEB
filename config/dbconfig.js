@@ -1,7 +1,12 @@
-const moongose = require('mongoose');
+ const moongose = require('mongoose');
+const { MongoClient } = require('mongodb');
 
 moongose.connect('mongodb://localhost:27017/Chatweb', {
-    useMongoClient: true
+   useNewUrlParser: true,
+   useUnifiedTopology: true
 });
 
+
+
 module.exports = moongose;
+

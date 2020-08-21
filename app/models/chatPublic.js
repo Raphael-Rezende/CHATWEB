@@ -5,8 +5,8 @@ const Schema = moongose.Schema;
 
 const ChatPublicShema = new Schema({
     nome: String,
-    mensage: String,
-    datahora: Timestamp,
+    mensage: String
+    //datahora: Timestamp,
      
 });
 

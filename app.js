@@ -1,6 +1,6 @@
 const app = require('./config/server');
 const port = 3000;
-const address = '192.168.1.106';
+const address = 'localhost';
 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
@@ -23,3 +23,5 @@ io.on('connection', sokect => {
 server.listen(port, address, function () {
     console.log("Servidor ON");
 });
+
+module.exports = io;
