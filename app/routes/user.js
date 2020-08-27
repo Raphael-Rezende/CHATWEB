@@ -16,5 +16,9 @@ module.exports = function(app){
         app.app.controllers.user.signup(app, req, res);
     });
 
+    app.get('/read_user', function(req, res){
+        app.app.controllers.user.read_user(app, req, res);
+    }); 
+
     
 }

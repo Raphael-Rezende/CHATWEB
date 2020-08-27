@@ -41,9 +41,34 @@ module.exports.signup = function(app, req, res){
     const { user } = req.body;
     const user_db = User.find({nome : user} , (err, users) => {
         if (err) return console.log(err);
-       //res.json(users);
     });
 
- 
+       if((user_db) != (user)){
+        
+        const item = {  
+            nome: user
+          };  
+          const data = new User(item);  
+          data.save();
+          res.redirect('/register_user');
+
+       }else{
+
+          res.status(401).json({message: 'User existente!'});
+       }
+    
+}
+
+module.exports.read_user = function(app, req, res){
+    const dbUser = require('../models/User');
+    const User = dbUser.mongoose.model('Users', dbUser.UserSchema, 'Users');
+    User.find({} , (err, users) => {
+        if (err) return console.log(err);
+       res.json(users);
+    }); 
+
+   
+
+    
 
 }

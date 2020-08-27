@@ -9,7 +9,11 @@ mongoose.connect('mongodb://localhost:27017/ChatWeb', {
 });
 
 const UserSchema = new Schema({
-    nome: String
+    nome: {
+        type: String, 
+        UNIQUE: true
+        
+    }
    
     //datahora: Timestamp,
      
