@@ -8,12 +8,21 @@ mongoose.connect('mongodb://localhost:27017/ChatWeb', {
     useUnifiedTopology: true
 });
 
+
+
 const UserSchema = new Schema({
     nome: {
         type: String, 
-        UNIQUE: true
+        unique: true
         
+    },
+    password:{
+        type: String,
+        require: true
     }
+
+    
+    
    
     //datahora: Timestamp,
      

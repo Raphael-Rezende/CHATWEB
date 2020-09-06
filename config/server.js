@@ -6,28 +6,16 @@ const path = require('path');
 const app = express();
 
 
-  
-
-
 require("dotenv-safe").config();
-const jwt = require('jsonwebtoken');
 
-
-function verifyJWT(req, res, next){
-    const token = req.headers['x-access-token'];
-    if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
-    
-    jwt.verify(token, process.env.SECRET, function(err, decoded) {
-      if (err) return res.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
-      
-      // se tudo estiver ok, salva no request para uso posterior
-      req.userId = decoded.id;
-      next();
-    });
-}
-
-
-
+// modulo express-session para autentificação de usuario:
+const expressSession = require('express-session');
+// Cofigurando o middleware:
+app.use(expressSession({
+    secret:'hgoslksjfls',
+    resave:false,
+    saveUninitialized: false
+}))
 
 
 
@@ -39,7 +27,7 @@ app.set('views','./app/views');
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({extended: true}));
-
+ 
 consign()
     .include('app/routes')
     .then('app/controllers')
