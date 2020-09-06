@@ -17,9 +17,10 @@ module.exports.validator = function(app, req, res){
  
          if(users){
             req.session.authorized = true;
-            req.session.usuario = users;
+            //req.session.usuario = users;
+
             if(req.session.authorized)
-                res.redirect('/chatPublic');
+                res.render("chat/chatPublic", {user});
              
          }else{
              res.status(400).json({message: 'Usuário não encontrado!'});

@@ -1,6 +1,6 @@
 const app = require('./config/server');
 const port = 3000;
-const address = 'localhost';
+const address = '192.168.100.124';
 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
